@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import FlipMove from "react-flip-move"
 
-class KnackItems extends Component {
+class KnackTips extends Component {
     constructor(props) {
         super(props);
 
-        this.createTasks = this.createTasks.bind(this);
+        this.createTips = this.createTips.bind(this);
     }
 
-    createTasks(item) {
-        return <li onClick={() =>this.delete(item.key)}
-                    key={item.key}>{item.text}</li>
+    createTips(tip) {
+        return <li onClick={() =>this.delete(tip.key)}
+                    key={tip.key}>{tip.text}</li>
     }
 
     delete(key) {
@@ -19,16 +19,16 @@ class KnackItems extends Component {
 
     render() {
         const knackEntries = this.props.entries;
-        const knackItems = knackEntries.map(this.createTasks);
+        const knackTips = knackEntries.map(this.createTips);
 
         return (
             <ul className="theList">
             <FlipMove duration={250} easing="ease-out">
-                {knackItems}
+                {knackTips}
             </FlipMove>
             </ul>
         )
     }
 }
 
-export default KnackItems;
+export default KnackTips;
