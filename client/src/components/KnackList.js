@@ -16,7 +16,7 @@ class KnackList extends Component {
     }
 
     componentDidMount() {
-        axios.get('/api/tip')
+        axios.get('/')
             .then(res => {
                 this.setState({ tips: res.data });
                 console.log(this.state.tips);
