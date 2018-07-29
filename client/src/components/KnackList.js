@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import KnackTips from "./KnackTips";
 import "./KnackList.css";
-
-const axios = require("axios");
-
+import axios from 'axios';
 
 class KnackList extends Component {
     constructor(props) {
@@ -15,6 +13,14 @@ class KnackList extends Component {
 
         this.addTip = this.addTip.bind(this);
         this.deleteTip = this.deleteTip.bind(this);
+    }
+
+    componentDidMount() {
+        axios.get('/api/tip')
+            .then(res => {
+                this.setState({ tips: res.data });
+                console.log(this.state.tips);
+            });
     }
 
     addTip(e) {
@@ -31,12 +37,6 @@ class KnackList extends Component {
                 }
             })
 
-            axios.post('/', {
-                tips: this.state.tips
-              })
-              .then(function (data) {
-                console.log(data);
-              });
         }
 
         this._inputElement.value = "";
@@ -60,13 +60,13 @@ class KnackList extends Component {
                 <div className="header">
                     <form onSubmit={this.addTip}>
                         <input ref={(a) => this._inputElement = a}
-                                placeholder="Enter tip...">
+                            placeholder="Enter tip...">
                         </input>
                         <button type="submit">Add</button>
                     </form>
                 </div>
                 <KnackTips entries={this.state.tips}
-                            delete={this.deleteTip}/>
+                    delete={this.deleteTip} />
             </div>
         );
     }
