@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import TodoItems from "./TodoItems";
 
 class TodoList extends Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class TodoList extends Component {
     addItem(e) {
         e.preventDefault();
         if (this._inputElement.value !== "") {
-            var newItem = {
+            let newItem = {
                 text: this._inputElement.value,
                 key: Date.now()
             };
@@ -42,6 +43,7 @@ class TodoList extends Component {
                         <button type="submit">Add</button>
                     </form>
                 </div>
+                <TodoItems entries={this.state.items}/>
             </div>
         );
     }
