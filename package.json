@@ -18,9 +18,11 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.15.4",
     "mongoose": "^5.2.5",
+    "npm": "^6.2.0",
     "react-flip-move": "^3.0.2"
   }
 }

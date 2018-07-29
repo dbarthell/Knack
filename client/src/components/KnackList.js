@@ -2,12 +2,15 @@ import React, { Component } from "react";
 import KnackTips from "./KnackTips";
 import "./KnackList.css";
 
+const axios = require("axios");
+
+
 class KnackList extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            tips: []
+            tips: [],
         }
 
         this.addTip = this.addTip.bind(this);
@@ -27,6 +30,13 @@ class KnackList extends Component {
                     tips: prevState.tips.concat(newTip)
                 }
             })
+
+            axios.post('/', {
+                tips: this.state.tips
+              })
+              .then(function (data) {
+                console.log(data);
+              });
         }
 
         this._inputElement.value = "";

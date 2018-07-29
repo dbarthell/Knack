@@ -9,8 +9,12 @@ class KnackTips extends Component {
     }
 
     createTips(tip) {
-        return <li onClick={() =>this.delete(tip.key)}
-                    key={tip.key}>{tip.text}</li>
+        return <li onClick={() => this.delete(tip.key)}
+                    key={tip.key}>{tip.text}
+                    <button 
+                            id="validated" type="submit">＋
+                    </button>
+                </li>
     }
 
     delete(key) {
@@ -23,9 +27,9 @@ class KnackTips extends Component {
 
         return (
             <ul className="theList">
-            <FlipMove duration={250} easing="ease-out">
-                {knackTips}
-            </FlipMove>
+                <FlipMove duration={250} easing="ease-out">
+                    {knackTips}
+                </FlipMove>
             </ul>
         )
     }
