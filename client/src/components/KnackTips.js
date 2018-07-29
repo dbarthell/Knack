@@ -11,9 +11,6 @@ class KnackTips extends Component {
     createTips(tip) {
         return <li onClick={() => this.delete(tip.key)}
                     key={tip.key}>{tip.text}
-                    <button 
-                            id="validated" type="submit">＋
-                    </button>
                 </li>
     }
 

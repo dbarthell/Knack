@@ -56,17 +56,19 @@ class KnackList extends Component {
 
     render() {
         return (
-            <div className="knackListMain">
-                <div className="header">
-                    <form onSubmit={this.addTip}>
-                        <input ref={(a) => this._inputElement = a}
-                            placeholder="Enter tip...">
-                        </input>
-                        <button type="submit">Add</button>
-                    </form>
+            <div>
+                <div className="knackListMain">
+                    <div className="header">
+                        <form onSubmit={this.addTip}>
+                            <input ref={(a) => this._inputElement = a}
+                                placeholder="Enter tip...">
+                            </input>
+                            <button type="submit">Add</button>
+                        </form>
+                    </div>
+                    <KnackTips entries={this.state.tips}
+                        delete={this.deleteTip} />
                 </div>
-                <KnackTips entries={this.state.tips}
-                    delete={this.deleteTip} />
             </div>
         );
     }

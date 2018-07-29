@@ -5,7 +5,7 @@ import KnackList from "./components/KnackList";
 class App extends Component {
   render() {
     return (
-      <KnackList />
+        <KnackList />
     );
   }
 }
