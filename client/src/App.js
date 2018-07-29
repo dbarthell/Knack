@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
-import TodoList from "./components/TodoList";
+import KnackList from "./components/KnackList";
 
 class App extends Component {
   render() {
     return (
-      <TodoList />
+      <KnackList />
     );
   }
 }

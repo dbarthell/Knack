@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import FlipMove from "react-flip-move"
 
-class TodoItems extends Component {
+class KnackItems extends Component {
     constructor(props) {
         super(props);
 
@@ -18,17 +18,17 @@ class TodoItems extends Component {
     }
 
     render() {
-        const todoEntries = this.props.entries;
-        const listItems = todoEntries.map(this.createTasks);
+        const knackEntries = this.props.entries;
+        const knackItems = knackEntries.map(this.createTasks);
 
         return (
             <ul className="theList">
             <FlipMove duration={250} easing="ease-out">
-                {listItems}
+                {knackItems}
             </FlipMove>
             </ul>
         )
     }
 }
 
-export default TodoItems;
+export default KnackItems;

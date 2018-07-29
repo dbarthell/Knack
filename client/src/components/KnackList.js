@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import TodoItems from "./TodoItems";
-import "./TodoList.css";
+import KnackItems from "./KnackItems";
+import "./KnackItems.css";
 
-class TodoList extends Component {
+class KnackList extends Component {
     constructor(props) {
         super(props);
 
@@ -46,7 +46,7 @@ class TodoList extends Component {
 
     render() {
         return (
-            <div className="todoListMain">
+            <div className="knackListMain">
                 <div className="header">
                     <form onSubmit={this.addItem}>
                         <input ref={(a) => this._inputElement = a}
@@ -55,11 +55,11 @@ class TodoList extends Component {
                         <button type="submit">Add</button>
                     </form>
                 </div>
-                <TodoItems entries={this.state.items}
+                <KnackItems entries={this.state.items}
                             delete={this.deleteItem}/>
             </div>
         );
     }
 }
 
-export default TodoList;
+export default KnackList;
