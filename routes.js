@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 
 /* GET TIPS BY KNACK */
 router.get('/:knack', function(req, res, next) {
-  Book.findById(req.params.knack, function (err, post) {
+  Tip.findById(req.params.knack, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
@@ -21,14 +21,6 @@ router.get('/:knack', function(req, res, next) {
 /* SAVE BOOK */
 router.post('/', function(req, res, next) {
   Tip.create(req.body, function (err, post) {
-    if (err) return next(err);
-    res.json(post);
-  });
-});
-
-/* UPDATE BOOK */
-router.put('/:id', function(req, res, next) {
-  Tip.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });

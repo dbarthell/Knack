@@ -37,6 +37,11 @@ class KnackList extends Component {
                 }
             })
 
+            axios.post('/api/tip', { newTip })
+            .then((data) => {
+                console.log(data);
+            });
+
         }
 
         this._inputElement.value = "";
@@ -52,6 +57,11 @@ class KnackList extends Component {
         this.setState({
             tips: filteredTips
         })
+
+        axios.delete('/api/book/' + key)
+        .then((data) => {
+            console.log(data)
+        });
     }
 
     render() {
