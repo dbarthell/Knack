@@ -20,12 +20,10 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 
 // Serve up static assets (usually on heroku)
+console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("build"));
-} else {
-  // Use express.static to serve the public folder as a static directory
-  app.use(express.static("public"));
-}
+  app.use(express.static("client/build"));
+} 
 
 app.use("/api/tip", tip);
 
