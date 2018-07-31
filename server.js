@@ -10,8 +10,6 @@ const tip = require('./routes.js');
 app.use(bodyParser.json());
 // Use body-parser for handling form submissions
 app.use(bodyParser.urlencoded({ extended: true }));
-// Use express.static to serve the public folder as a static directory
-app.use(express.static("public"));
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/knack";
@@ -24,6 +22,9 @@ mongoose.connect(MONGODB_URI);
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("build"));
+} else {
+  // Use express.static to serve the public folder as a static directory
+  app.use(express.static("public"));
 }
 
 app.use("/api/tip", tip);
