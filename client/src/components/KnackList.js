@@ -26,8 +26,8 @@ class KnackList extends Component {
     addTip(e) {
         e.preventDefault();
         if (this._inputElement.value !== "") {
-            let newTip = {
-                text: this._inputElement.value,
+            const newTip = {
+                tip: this._inputElement.value,
                 key: Date.now()
             };
 
@@ -36,8 +36,8 @@ class KnackList extends Component {
                     tips: prevState.tips.concat(newTip)
                 }
             })
-
-            axios.post('/api/tip', { newTip })
+            console.log("New tip ", newTip);
+            axios.post('/api/tip', newTip)
             .then((data) => {
                 console.log(data);
             });
@@ -47,9 +47,11 @@ class KnackList extends Component {
         this._inputElement.value = "";
 
         console.log(this.state.tips);
+        console.log(this._inputElement.value)
     }
 
     deleteTip(key) {
+        console.log(key);
         const filteredTips = this.state.tips.filter(function (tip) {
             return (tip.key !== key)
         });
@@ -58,7 +60,7 @@ class KnackList extends Component {
             tips: filteredTips
         })
 
-        axios.delete('/api/book/' + key)
+        axios.delete('/api/tip/' + key)
         .then((data) => {
             console.log(data)
         });

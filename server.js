@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const tip = require('./routes.js');
 
 
+app.use(bodyParser.json());
 // Use body-parser for handling form submissions
 app.use(bodyParser.urlencoded({ extended: true }));
 // Use express.static to serve the public folder as a static directory

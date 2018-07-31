@@ -43,16 +43,4 @@ ul.theList {
     padding: 0;
 }
 
-#validated {
-    float: right;
-    display: none;
-    cursor: pointer;
-    background: none;
-    border: none;
-    font-size: 20px;
-}
-
-.knackListMain .theList li:hover #validated {
-    display: inline-block;
-}
 
