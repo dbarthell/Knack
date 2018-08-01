@@ -2,22 +2,32 @@ import React, { Component } from "react";
 import FlipMove from "react-flip-move"
 
 class KnackTips extends Component {
+    constructor(props) {
+        super(props);
+
+        this.createTips = this.createTips.bind(this);
+    }
+
+    createTips(tip) {
+        return <li key={tip.key} onClick={() => this.delete(tip._id)}
+                >{tip.tip}
+                </li>
+
+    }
 
     delete(key) {
-        console.log(key);
+        console.log("Knacktips delete key is ", key);
         this.props.delete(key);
     }
 
     render() {
         const knackEntries = this.props.entries;
+        const knackTips = knackEntries.map(this.createTips);
 
         return (
             <ul className="theList">
                 <FlipMove duration={250} easing="ease-out">
-                    {knackEntries.map(tip => 
-                    <li key={tip.key} onClick={() => this.delete(tip._id)}
-                        >{tip.tip}
-                    </li>)}
+                    {knackTips}
                 </FlipMove>
             </ul>
         )

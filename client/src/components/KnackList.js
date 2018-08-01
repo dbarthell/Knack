@@ -38,9 +38,9 @@ class KnackList extends Component {
             })
             console.log("New tip ", newTip);
             axios.post('/api/tip', newTip)
-            .then((data) => {
-                console.log(data);
-            });
+                .then((data) => {
+                    console.log(data);
+                });
 
         }
 
@@ -51,7 +51,7 @@ class KnackList extends Component {
     }
 
     deleteTip(key) {
-        console.log(key);
+        console.log("KnackList delete is ", key);
         const filteredTips = this.state.tips.filter(function (tip) {
             return (tip.key !== key)
         });
@@ -61,9 +61,9 @@ class KnackList extends Component {
         })
 
         axios.delete('/api/tip/' + key)
-        .then((data) => {
-            console.log(data)
-        });
+            .then((data) => {
+                console.log(data)
+            });
     }
 
     render() {
