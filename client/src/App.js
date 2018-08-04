@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
 import KnackList from "./components/KnackList";
-import Auth from "./components/Auth";
 
 class App extends Component {
   render() {
@@ -11,7 +10,6 @@ class App extends Component {
           <a className="navbar-brand">knack</a>
         </nav>
         <KnackList />
-        <Auth />
       </div>
     );
   }

@@ -28,7 +28,8 @@ class KnackList extends Component {
         if (this._inputElement.value !== "") {
             const newTip = {
                 tip: this._inputElement.value,
-                key: Date.now()
+                key: Date.now(),
+                proven: false
             };
 
             this.setState((prevState) => {
