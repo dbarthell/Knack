@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./App.css";
 import KnackList from "./components/KnackList";
 import Main from "./components/Main";
 import Callback from "./components/Callback";
