@@ -6,13 +6,17 @@ class KnackTips extends Component {
         super(props);
 
         this.createTips = this.createTips.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick() {    
     }
 
     createTips(tip) {
         return <li key={tip.key} onClick={() => this.delete(tip._id)}>
-                {tip.tip}
-                <button type="button" className="btn btn-light">Save</button>
-                </li>
+            {tip.tip}
+            <button onClick={this.handleClick} type="button" className="btn btn-light">Save</button>
+        </li>
 
     }
 
