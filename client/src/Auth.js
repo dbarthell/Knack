@@ -11,10 +11,10 @@ export default class Auth {
         domain: "dbar-knack.auth0.com",
         clientID: process.env.REACT_APP_CLIENT_ID,
         clientSecret: process.env.REACT_APP_CLIENT_SECRET,
-        redirectUri: "http://localhost:3000/callback",
+        redirectUri: process.env.NODE_ENV === 'production' ? 'https://warm-atoll-55441.herokuapp.com/callback' : "http://localhost:3000/callback",
         audience: "https://dbar-knack.auth0.com/userinfo",
         responseType: "token id_token",
-        scope: "openid"
+        scope: "openid",
     });
 
     constructor() {
