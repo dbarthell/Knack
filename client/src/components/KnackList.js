@@ -52,7 +52,6 @@ class KnackList extends Component {
     }
 
     deleteTip(key) {
-        console.log("KnackList delete is ", key);
         const filteredTips = this.state.tips.filter(function (tip) {
             return (tip.key !== key)
         });
@@ -61,10 +60,12 @@ class KnackList extends Component {
             tips: filteredTips
         })
 
+        console.log("KnackList delete is ", key);
+
         axios.delete('/api/tip/' + key)
             .then((data) => {
                 console.log(data)
-            });
+        });
     }
 
     render() {
