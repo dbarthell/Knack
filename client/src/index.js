@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 import Auth from "./Auth";
+require('dotenv').config()
+
 
 const auth = new Auth();
 

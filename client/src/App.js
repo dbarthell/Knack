@@ -12,13 +12,13 @@ class App extends Component {
         mainComponent = <Main {...this.props} />;
         break;
       case "callback":
-        mainComponent = <Callback />;
+        mainComponent = <Callback />
         break;
       case "knacklist":
         mainComponent = this.props.auth.isAuthenticated() ? <KnackList /> : <Main />;
         break;
       default:
-        mainComponent = <Main />;
+        mainComponent = <Main />
         break;
     }
 
