@@ -2,10 +2,14 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3001;
+const authRoutes = require("./auth-routes.js");
 const app = express();
 const mongoose = require("mongoose");
 const tip = require('./routes.js');
+const passportSetup = require("./config/passport-setup");
 
+// set up routes 
+app.use("/auth", authRoutes);
 
 app.use(bodyParser.json());
 // Use body-parser for handling form submissions

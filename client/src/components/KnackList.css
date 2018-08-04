@@ -14,21 +14,28 @@
 .knackListMain .header button {
     padding: 10px;
     font-size: 16px;
-    margin: 10px;
+    margin: 10px 0;
     margin-right: 0px;
     background-color: #3e99ed;
     color: white;
     border: 2px solid #3e99ed;
-    border-radius: 10px;
-    width: 60px;
+    border-radius: 3px;
+    width: 70px;
 }
 
 .knackListMain .header button:hover {
     cursor: pointer;
 }
 
+button.btn.btn-light {
+    float: right;
+    vertical-align: center;
+    margin: -6px;
+    background-color: lightgrey;
+}
+
 .knackListMain .theList li {
-    color: grey;
+    color: black;
     padding: 15px;
     border-radius: 10px;
     border: solid;
@@ -40,6 +47,8 @@
 
 .knackListMain .theList li:hover {
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.1);
+    text-emphasis: bold;
 }
 
 ul.theList {
@@ -59,4 +68,7 @@ form {
     font-size: 32px;
     margin-left: 40px;
 }
+
+
+
 
