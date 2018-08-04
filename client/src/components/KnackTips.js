@@ -8,7 +8,7 @@ class KnackTips extends Component {
         this.createTips = this.createTips.bind(this);
     }
 
-    changeColor(event, key) {   
+    changeColor(event) {   
         event.target.style.color = "gold"
     }
 
