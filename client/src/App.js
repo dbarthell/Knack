@@ -9,16 +9,16 @@ class App extends Component {
     let mainComponent = ""
     switch(this.props.location) {
       case "":
-        mainComponent = <Main {...this.props} />
+        mainComponent = <Main {...this.props} />;
         break;
       case "callback":
-        mainComponent = <Callback />
+        mainComponent = <Callback />;
         break;
       case "knacklist":
-        mainComponent = <KnackList />
+        mainComponent = this.props.auth.isAuthenticated() ? <KnackList /> : <Main />;
         break;
       default:
-        mainComponent = <Main />
+        mainComponent = <Main />;
         break;
     }
 
