@@ -7,6 +7,9 @@ const TipSchema = new Schema({
   tip: {
     type: String
 },
+  proven: {
+    type: Boolean
+},
   knack: {
     type: String
   }

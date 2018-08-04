@@ -32,17 +32,15 @@ class KnackList extends Component {
                 proven: false
             };
 
-            this.setState((prevState) => {
-                return {
-                    tips: prevState.tips.concat(newTip)
-                }
-            })
             console.log("New tip ", newTip);
             axios.post('/api/tip', newTip)
                 .then((data) => {
-                    console.log(data);
-                });
-
+                    axios.get('/api/tip')
+                        .then(res => {
+                            this.setState({ tips: res.data });
+                            console.log(this.state.tips);
+                        })
+                })
         }
 
         this._inputElement.value = "";
@@ -52,21 +50,16 @@ class KnackList extends Component {
     }
 
     deleteTip(key) {
-        const filteredTips = this.state.tips.filter(function (tip) {
-            return (tip.key !== key)
-        });
-
-        this.setState({
-            tips: filteredTips
-        })
-
-        console.log("KnackList delete is ", key);
-
         axios.delete('/api/tip/' + key)
-            .then((data) => {
-                console.log(data)
-        });
+            .then(() => {
+                axios.get('/api/tip')
+                    .then(res => {
+                        this.setState({ tips: res.data });
+                        console.log(this.state.tips);
+                    });
+            });
     }
+
 
     render() {
         return (
@@ -81,7 +74,8 @@ class KnackList extends Component {
                         </form>
                     </div>
                     <KnackTips entries={this.state.tips}
-                        delete={this.deleteTip} />
+                        delete={this.deleteTip}
+                    />
                 </div>
             </div>
         );
