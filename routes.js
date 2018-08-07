@@ -18,7 +18,7 @@ router.get('/:knack', function(req, res, next) {
   });
 });
 
-/* SAVE BOOK */
+/* SAVE TIP */
 router.post('/', function(req, res, next) {
   Tip.create(req.body, function (err, post) {
     if (err) return next(err);
@@ -26,12 +26,21 @@ router.post('/', function(req, res, next) {
   });
 });
 
-/* DELETE BOOK */
+/* DELETE TIP */
 router.delete('/:id', function(req, res, next) {
   Tip.findByIdAndRemove(req.params.id, req.body, function (err, post) {
     if (err) return next(err);
     res.json(post);
   });
 });
+
+/* UPDATE TIP */
+router.put('/:id', function(req, res, next) {
+  Tip.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
+    if (err) return next(err);
+    res.json(post);
+  });
+});
+
 
 module.exports = router;

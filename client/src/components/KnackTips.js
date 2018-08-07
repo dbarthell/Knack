@@ -8,14 +8,14 @@ class KnackTips extends Component {
         this.createTips = this.createTips.bind(this);
     }
 
-    changeColor(event) {
-        event.target.style.color = "gold";
-    }
-
     createTips(tip) {
+        let saveButtonClasses = "btn btn-light save";
+        if (tip.proven) {
+            saveButtonClasses += " proven";
+        }
         return <li key={tip.key} >
             {tip.tip}
-            <button onClick={this.changeColor} type="button" className="btn btn-light save">✔︎</button>
+            <button onClick={() => this.save(tip._id)} type="button" className={saveButtonClasses}>✔︎</button>
             <button onClick={() => this.delete(tip._id)} type="button" className="btn btn-light delete">✕</button>
         </li>
 
@@ -24,6 +24,11 @@ class KnackTips extends Component {
     delete(key) {
         console.log("Knacktips delete key is ", key);
         this.props.delete(key);
+    }
+
+    save(key) {
+        this.props.save(key);
+        // event.target.style.color = "gold";
     }
 
     render() {

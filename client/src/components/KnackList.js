@@ -9,16 +9,18 @@ class KnackList extends Component {
 
         this.state = {
             tips: [],
+            proven: false
         }
 
         this.addTip = this.addTip.bind(this);
         this.deleteTip = this.deleteTip.bind(this);
+        this.saveTip = this.saveTip.bind(this)
     }
 
     componentDidMount() {
         axios.get('/api/tip')
             .then(res => {
-                this.setState({ tips: res.data });
+                this.setState({ tips: res.data, proven: res.data.proven });
                 console.log(this.state.tips);
             });
     }
@@ -60,8 +62,20 @@ class KnackList extends Component {
             });
     }
 
+    saveTip(key) {
+        axios.put('/api/tip/' + key, {
+            proven: true
+        }).then(() => {
+            axios.get('/api/tip')
+                .then(res => {
+                    this.setState({ tips: res.data });
+                    console.log(this.state.tips);
+                });
+        })
+    }
 
     render() {
+
         return (
             <div>
                 <div className="knackListMain">
@@ -73,9 +87,10 @@ class KnackList extends Component {
                             <button type="submit">Add</button>
                         </form>
                     </div>
-                    <KnackTips entries={this.state.tips}
-                        delete={this.deleteTip}
-                    />
+                    <KnackTips
+                    entries={this.state.tips}
+                    delete={this.deleteTip}
+                    save={this.saveTip} />
                 </div>
             </div>
         );
