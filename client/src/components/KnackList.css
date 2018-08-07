@@ -81,3 +81,14 @@ form {
 button.btn.btn-light.proven {
     background-color: gold;
 }
+
+.boardname {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: -10px;
+}
+
+.boardInput {
+    outline: none;
+    border: none;
+}

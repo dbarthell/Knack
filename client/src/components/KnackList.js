@@ -80,6 +80,7 @@ class KnackList extends Component {
             <div>
                 <div className="knackListMain">
                     <div className="header">
+                    <h1 className="boardname">{this.props.boardname}</h1>
                         <form onSubmit={this.addTip}>
                             <input ref={(a) => this._inputElement = a}
                                 placeholder="Enter tip...">
