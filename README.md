@@ -1,84 +1,16 @@
-# Create React Express App
+# Knack
 
-## About This Boilerplate
+## Overview
+The purpose of Knack is to give users a way to track the various skills or techniques that are essential for performing a particular activity or discipline at a high level. It is essentially a tool for improvement. For example, up til now I have manually kept a written list of key swing thoughts that I use for my golf game. On a sheet of paper, I write down those thoughts or “tips” that I am either currently testing or have been proven over time. The ultimate fate for each new thought under test is to either discard it or mark it as proven and implement into my game permanently. Over time, I have used numerous sheets of paper as I have tested and discarded countless ideas to improve my game.
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+It would be more useful to convert this system into a digital format. Not only would it eliminate paper waste, but it would also provide a more portable and convenient way to manage this trial and error process. There are many additional features one could imagine, including saving “proven” tips, managing multiple “knacks” at once, or sharing tips with other users.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+## UI/UX
+Each user will have their own profile page via some authentication tool
+A user will have the ability to create new “tips” and see them in a list format
+A user will have the ability to delete a tip
+A user will have the ability to save a “proven” tip
+STRETCH: users will be able to create multiple knack lists
+STRETCH: user will be able to share tips with others
 
-## Starting the app locally
 
-Start by installing front and backend dependencies. While in this directory, run the following commands:
-
-```
-yarn install
-cd client
-yarn install
-cd ..
-``
-
-After both installations complete, run the following command in your terminal:
-
-```
-yarn start
-```
-
-That's it, your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
-
-## Deployment (Heroku)
-
-### Create a Git Repo
-
-Once you're ready to deploy, start by making sure your project is a git repository. If so, proceed to the next section, otherwise run the following commands in your terminal:
-
-```
-git init
-git add .
-git commit -m "Initial commit"
-```
-
-### Heroku
-
-Make sure that you have a Heroku app created for this project. If so, proceed to the next section, otherwise run the following command in your terminal:
-
-```
-heroku create
-```
-
-Optionally add an argument for your application's name after `create`, e.g.
-
-```
-heroku myAwesomeApp
-```
-
-### Deploying
-
-#### Option 1
-
-Use the deploy script inside of the outer `package.json`
-
-After confirming that you have an up to date git repository and a Heroku app created, run the following command to deploy:
-
-```
-yarn deploy
-```
-
-If all previous steps were followed correctly, your application should be deployed to Heroku!
-
-#### Option 2
-
-Manually deploy 
-
-After confirming that you have an up to date git repository and a Heroku app created, complete the following:
-
-1. Build the React app for production by running the following command:
-
-```
-yarn build
-```
-
-2. Add and commit all changes to git
-
-3. Push to Heroku
-
-If all previous steps were followed correctly, your application should be deployed to Heroku!
